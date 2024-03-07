@@ -10,9 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: DownloadGitHubRelease@0
+- task: PublishBuildArtifacts@1
   inputs:
-    connection: 'github.com_sergeypaley'
-    userRepository: 'sergeypaley/azure'
-    defaultVersionType: 'latest'
-    downloadPath: '$(System.ArtifactsDirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'html'
+    publishLocation: 'Container'
