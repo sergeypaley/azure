@@ -10,6 +10,13 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: Ant@1
+  inputs:
+    buildFile: 'build.xml'
+    options: 
+    publishJUnitResults: true
+    testResultsFiles: '**/Index*.xml'
+    javaHomeOption: 'JDKVersion'
 - task: CopyFiles@2
   inputs:
     Contents: '**'
